@@ -9,7 +9,24 @@ html {
 	padding: 0;
 }
 
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
 /*全体↓*/
+
+html,
+body {
+	width: 100%;
+	overflow-x: hidden;
+	/* 横スクロール防止 */
+	margin: 0;
+	padding: 0;
+}
 
 body {
 	background-color: rgba(245, 245, 220, 0.3);
@@ -38,7 +55,6 @@ header {
 	background-repeat: no-repeat;
 	width: 100%;
 	height: auto;
-	padding: 0 10px;
 }
 
 header nav {
@@ -236,8 +252,8 @@ div .notice {
 	border: 1px solid rgba(230, 200, 170, 0.4);
 	margin: 0 auto;
 	display: block;
-	border-radius: 16px;
 	width: 100%;
+	height: auto;
 }
 
 .article-notice .notice {
@@ -438,7 +454,7 @@ div .notice {
 
 /*譲渡会について↑*/
 
-/*この子達がお待ちしております↓*/
+/*猫ちゃん達の紹介↓*/
 
 .article-cat {
 	background-color: #fff8f0;
@@ -500,7 +516,7 @@ div .notice {
 	background-color: #fff3e6;
 }
 
-/*この子達がお待ちしております↑*/
+/*猫ちゃん達の紹介↑*/
 
 /*お問い合わせフォーム↓*/
 
@@ -620,7 +636,7 @@ footer {
 	padding: 40px 20px;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
+	flex-direction: column;
 	align-items: center;
 	gap: 20px;
 	text-align: center;
@@ -628,14 +644,27 @@ footer {
 }
 
 .footer-logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+.footer-logo img {
 	width: 10%;
 	height: auto;
+	object-fit: contain;
+}
+
+.footer-logo p {
+	margin: 0;
 }
 
 .footer-nav {
 	display: flex;
-	gap: 20px;
-	flex-wrap: wrap;
+	justify-content: center;
+	width: 100%;
+	gap: 10px;
 }
 
 .footer-nav a {
@@ -715,15 +744,17 @@ footer>a:hover {
 
 
 footer .copyright {
-	width: 100%;
+	width: auto;
 	margin-top: 20px;
-	font-size: 18px;
+	font-size: calc(18 / 16 * 1rem);
 	color: #65432a;
+	display: flex;
+	align-items: center;
 }
 
 /*footer領域↑*/
 
-/*レスポンシブスマホ↓*/
+/*レスポンシブ・タブレット↓*/
 
 @media screen and (max-width: 768px) {
 
@@ -814,9 +845,10 @@ footer .copyright {
 
 	/*footer領域↓*/
 
-	.footer-logo {
-		width: 15%;
+	.footer-logo img {
+		width: 10%;
 		height: auto;
+		gap: 5px;
 	}
 
 	.footer-nav {
@@ -827,7 +859,227 @@ footer .copyright {
 
 }
 
-/*レスポンシブスマホ↑*/
+/*レスポンシブ・タブレット↑*/
 
-/*レスポンシブPC↓*/
-/*レスポンシブPC↑*/
+/*レスポンシブ・スマホ↓*/
+
+@media screen and (max-width: 428px) {
+
+	html {
+		font-size: 12px;
+	}
+
+	/*header領域↓*/
+
+	header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 10px 0;
+		background-image: url("../images/header_respon.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: left center;
+		height: auto;
+	}
+
+	.logo-link img {
+		width: 40%;
+		height: auto;
+		margin-left: 20px;
+		max-width: 200px;
+	}
+
+	header nav {
+		position: fixed;
+		top: 35px;
+		right: 5px;
+		z-index: 1000;
+
+	}
+
+	header nav .btn {
+		font-size: calc(10 / 12 * 1rem);
+		padding: 6px 12px;
+		min-width: 60px;
+		text-align: center;
+	}
+
+	.h1 {
+		font-size: calc(15 / 12 * 1rem);
+		letter-spacing: 2px;
+		padding: 10px 10px;
+		border-radius: 20px;
+	}
+
+	/*header領域↑*/
+
+	/*ヒーローイメージ↓*/
+
+	.hero {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 1920 / 800;
+		overflow: hidden;
+	}
+
+	.hero-slider {
+		width: 100%;
+		height: auto;
+	}
+
+	.hero-slider img {
+		width: 95%;
+		/* 画面幅に合わせる */
+		height: auto;
+		/* 高さは自動 */
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		margin-top: 20px;
+		/* 余白を削除 */
+	}
+
+	.hero-dots span {
+		width: 12px;
+		height: 12px;
+	}
+
+	/*ヒーローイメージ↑*/
+
+	/*譲渡会のお知らせ↓*/
+
+	.article-notice {
+		padding: 20px 20px 20px 20px;
+	}
+
+	.article-notice h2 {
+		font-size: calc(15 / 12 * 1rem);
+		padding: 10px 10px;
+		border-radius: 30px;
+		margin-top: 0;
+	}
+
+	.notice h3 {
+		margin-top: 40px;
+		margin-bottom: 20px;
+		padding-left: 10px;
+		border-left: 6px solid rgba(250, 128, 114, 0.4);
+		/* サーモンピンク */
+		color: #65432A;
+		font-size: calc(14 / 12 * 1rem);
+	}
+
+	/*譲渡会のお知らせ↑*/
+
+	/*譲渡会について↓*/
+
+	.article-event {
+		padding: 20px;
+	}
+
+	.article-event h2 {
+		font-size: calc(15 / 12 * 1rem);
+		padding: 10px 10px;
+	}
+
+	.btn {
+		font-size: calc(12 / 12 * 1rem);
+		padding: 5px 5px;
+	}
+
+	/*譲渡会について↑*/
+
+	/*猫ちゃん達の紹介↓*/
+
+	.article-cat {
+		padding: 20px 20px;
+	}
+
+	.article-cat h2 {
+		font-size: calc(15 / 12 * 1rem);
+		padding: 10px 10px;
+	}
+
+	.cat-image figure img {
+		width: 100%;
+		height: auto;
+	}
+
+	/*猫ちゃん達の紹介↑*/
+
+	/*お問い合わせフォーム↓*/
+
+	.contact {
+		padding: 20px 20px;
+	}
+
+	.contact h2 {
+		font-size: calc(15 / 12 * 1rem);
+		padding: 10px 10px;
+	}
+
+	/*お問い合わせフォーム↑*/
+
+	/*footer領域↓*/
+
+	footer {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		margin: 0 auto;
+		width: 100%;
+	}
+
+	.footer-logo {
+		display: flex;
+		align-items: flex-end;
+	}
+
+	.footer-logo img {
+		width: 13%;
+		height: auto;
+		gap: 5px;
+	}
+
+	.footer-logo p {
+		font-size: calc(16 / 12 * 1rem);
+	}
+
+	.footer-nav {
+		font-size: calc(12 / 12 * 1rem);
+	}
+
+	.footer-nav a {
+		padding: 10px 10px;
+	}
+
+	.footer-nav,
+	.tel-icon,
+	.footer-sns,
+	.footer-logo {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.footer-tel i {
+		font-size: 1.5rem;
+	}
+
+	.footer-tel span {
+		font-size: 1.5rem;
+	}
+
+	.footer-sns a i {
+		font-size: calc(36 / 12 * 1rem);
+	}
+
+	/*footer領域↑*/
+
+}
+
+/*レスポンシブ・スマホ↑*/
