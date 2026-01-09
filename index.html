@@ -62,7 +62,7 @@
 					<aside>
 						<p>
 							<small>
-								※このサイトは架空のLPです。仕様している画像はＯ－ＤＡＮ様のフリー素材を使わせて頂いております。
+								※このサイトは架空のLPです。使用している画像はＯ－ＤＡＮ様のフリー素材を使わせて頂いております。
 							</small>
 						</p>
 					</aside>
@@ -257,12 +257,13 @@
 
 					<h3>↓&nbsp;お問い合わせはこちら&nbsp;↓</h3>
 
-					<form action="#" method="post">
+					<form class="js-form" action="#" method="post" novalidate>
 
 						<div class="field">
 
 							<label for="name">お名前</label>
 							<input type="text" id="name" name="name" required>
+							<p class="error-message">お名前を入力してください！</p>
 
 						</div>
 
@@ -270,6 +271,7 @@
 
 							<label for="tel">電話番号</label>
 							<input type="tel" id="tel" name="tel" required>
+							<p class="error-message">電話番号を入力してください！</p>
 
 						</div>
 
@@ -277,13 +279,15 @@
 
 							<label for="email">メールアドレス</label>
 							<input type="email" id="email" name="email" required>
+							<p class="error-message">メールアドレスを入力してください！</p>
 
 						</div>
 
 						<div class="field">
 
 							<label for="message">ご質問内容</label>
-							<textarea id="message" name="message" rows="5" required></textarea>
+							<textarea id="message" name="message" rows="6" required></textarea>
+							<p class="error-message">内容を入力してください！</p>
 
 						</div>
 
@@ -295,9 +299,6 @@
 
 					</form>
 
-				</div><!--contact-form-->
-
-				<div class="contact-tel">
 
 					<h3>↓&nbsp;電話でのご相談はこちら&nbsp;↓</h3>
 
@@ -415,8 +416,24 @@
 
 	</script>
 
-
 	<!--スライドショー↑-->
+
+	<!--お問い合わせフォーム-->
+
+	<script>
+		const form = document.querySelector('.js-form');
+
+		form.addEventListener('submit', function (e) {
+			form.classList.add('is-submitted');
+
+			if (!form.checkValidity()) {
+				e.preventDefault(); // ← 送信を止める
+			}
+		});
+	</script>
+
+
+	<!--お問い合わせフォーム-->
 
 </body>
 
